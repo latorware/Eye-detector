@@ -18,6 +18,7 @@ for k = 1:numFilesCares
 end
 
 %% carregar imatges no ulls
+%% i fer el crop en 48x32 píxels
 ImatgesNoUllsDir = dir('./No_ulls/*.jpg');
 numFilesNoUlls = length(ImatgesNoUllsDir);
 ImatgesNoUlls = cell(1,numFilesNoUlls);
@@ -25,6 +26,7 @@ ImatgesNoUlls = cell(1,numFilesNoUlls);
 for k = 1:numFilesNoUlls
     ImatgesNoUlls{k} = imread(strcat('./No_ulls/', ImatgesNoUllsDir(k).name));
     ImatgesNoUlls{k} = rgb2gray(ImatgesNoUlls{k}); 
+    ImatgesNoUlls{k} = imresize(ImatgesNoUlls{k}, [NaN, 48]); 
 end
 for k = 1:numFilesNoUlls
 %     subplot(4,5,k);
@@ -42,3 +44,7 @@ for k = 1:length(ImatgesCares)
         XUllEsquerre - 60 : XUllEsquerre + 59, :);
     ImatgesCares{k} = imresize(ImatgesCares{k}, [NaN 48]); 
 end
+
+
+
+
