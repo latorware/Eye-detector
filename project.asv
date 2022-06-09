@@ -35,6 +35,6 @@ YUllEsquerre = 481;
 XUllEsquerre = 385; 
 
 for k = 1:length(ImatgesCares)
-    ImatgesCares{k} = ImatgesCares{k}(YUllEsquerre - 40 : YUllEsquerre + 39, ...
-        XUllEsquerre - 60 : XUllEsquerre + 59, :);
+    ImatgesCares{k} = ImatgesCares{k}(YUllEsquerre - 32 : YUllEsquerre + 30, ...
+        XUllEsquerre - 24 : XUllEsquerre + 23, :);
 end
