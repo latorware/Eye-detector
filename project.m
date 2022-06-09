@@ -18,14 +18,14 @@ end
 
 
 ImatgesNoUllsDir = dir('./No_ulls/*.jpg');
-numFilesCares = length(ImatgesCaresDir);
-ImatgesCares = cell(1,numFilesCares);
+numFilesNoUlls = length(ImatgesNoUllsDir);
+ImatgesNoUlls = cell(1,numFilesNoUlls);
 % mydata = zeros(numFiles);
-for k = 1:numFilesCares
-    ImatgesCares{k} = imread(strcat('./Cares/', ImatgesCaresDir(k).name));
+for k = 1:numFilesNoUlls
+    ImatgesNoUlls{k} = imread(strcat('./No_ulls/', ImatgesNoUllsDir(k).name));
 end
-for k = 1:numFilesCares
+for k = 1:numFilesNoUlls
 %     subplot(4,5,k);
     %figure;
-    %imshow(ImatgesCares{k});
+    %imshow(ImatgesNoUlls{k});
 end
