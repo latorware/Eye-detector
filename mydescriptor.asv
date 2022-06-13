@@ -1,0 +1,57 @@
+%% input imatge escala grisos 48x32
+function [D] = mydescriptor(I)
+%A = fspecial('sobel');
+%figure
+%imshow(imfilter(I, A)); 
+%B = fspecial('log', [5 5], 0.35); 
+%figure
+%imshow(imfilter(I, B)); 
+%% possibles features
+    % laplatian of gaussian per a 9 subdivisions
+        % de cada una,
+        % mitjana nivells gris
+        % tambe variancia
+        % tambe skewImatgeness
+        % tambe kurtosisImatge
+    
+   % fer aixo tambe per a la imatge original?
+
+
+   % prova mitjana nivells gris, variancia, skew i kurtsosis
+   % sense subdivisions imatge origianl
+
+    % histograma
+    [valorsHist, nivellsGris] = imhist(I);
+    nombrePixels = sum(valorsHist);
+    % Mitjana nivells de gris
+    mitjanaImatge = sum(nivellsGris .* valorsHist) / nombrePixels;
+    % Variancia imatge
+    varianciaImatge = sum((nivellsGris - mitjanaImatge) .^ 2 .* valorsHist) / (nombrePixels-1);
+    % Desviacio estandard imatge
+    desEstandardImatge = sqrt(varianciaImatge);
+    % skewImatge image. 
+    skewImatge = sum((nivellsGris - mitjanaImatge) .^ 3 .* valorsHist) / ((nombrePixels - 1) * desEstandardImatge^3);
+    % kurtosisImatge image. 
+    kurtosisImatge = sum((nivellsGris - mitjanaImatge) .^ 4 .* valorsHist) / ((nombrePixels - 1) * desEstandardImatge^4);
+
+
+
+   %prova prova mitjana nivells gris, variancia, skew i kurtsosis
+   % amb 9 subdivisions imatge original
+
+   for i = 1:3
+       for j = 1:3
+           subimage = I(((i-1)*(32/3)):(i*(32/3)), ((j-1)*(48/3)):(j*(48/3))); 
+           
+
+   %prova prova mitjana nivells gris, variancia, skew i kurtsosis
+   % imatge laplatian of gaussian sense subdivisions
+    
+
+   %prova prova mitjana nivells gris, variancia, skew i kurtsosis
+   % imatge laplatian of gaussian 9 subdivisions
+
+
+   D =  1; 
+end
+
