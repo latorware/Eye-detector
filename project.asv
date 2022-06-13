@@ -80,22 +80,17 @@ varNames = {'Mitjana laplacia subimatge 1', 'Variancia laplacia subimatge 1', 'S
 %}
 
 %% Calcular taula descriptors
-T = array2table(mydescriptor(ImatgesNoUlls{1})); 
-T.Etiqueta = categorical({'No-Ulls'});
+[x y] = size(varNames); 
+T = array2table(zeros(0,y));
 T.Properties.VariableNames = varNames; 
 
-for k = 2:length(ImatgesNoUlls)
-    temp = array2table(mydescriptor(ImatgesNoUlls{k})); 
-    temp.Etiqueta = categorical({'No-Ulls'});
-    temp.Properties.VariableNames = varNames; 
-    T = [T;temp]; 
+etiqueta = 'No-Ulls'; 
+for k = 1:numFilesNoUlls
+    temp = array2table(mydescriptor(ImatgesNoUlls{i})); 
+    temp.Etiqueta = categorical({'a'});
+    temp.Properties.
+    T = [T;(array2table([mydescriptor(ImatgesNoUlls{k}) T]))]
 end
     
-
-for k = 1:length(ImatgesCares)
-    temp = array2table(mydescriptor(ImatgesCares{k})); 
-    temp.Etiqueta = categorical({'Ulls'});
-    temp.Properties.VariableNames = varNames; 
-    T = [T;temp]; 
-end
+etiqueta = 'Ulls'; 
 

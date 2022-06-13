@@ -19,7 +19,7 @@ function [D] = mydescriptor(I)
 
 % prova mitjana nivells gris, variancia, skew i kurtsosis
 % sense subdivisions imatge origianl
-    %{
+    
     D = []; 
     % histograma
     [valorsHist, nivellsGris] = imhist(I);
@@ -38,7 +38,7 @@ function [D] = mydescriptor(I)
     % kurtosisImatge image. 
     kurtosisImatge = sum((nivellsGris - mitjanaImatge) .^ 4 .* valorsHist) / ((nombrePixels - 1) * desEstandardImatge^4);
     D(end+1) = kurtosisImatge; 
-    %}
+    
 
 
 %prova prova mitjana nivells gris, variancia, skew i kurtsosis
