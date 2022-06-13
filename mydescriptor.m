@@ -7,7 +7,7 @@ function [D] = mydescriptor(I)
 %figure
 %imshow(imfilter(I, B)); 
 %% possibles features
-    % laplatian of gaussian per a 9 subdivisions
+    % laplatian of gaussian per a 6 subdivisions
         % de cada una,
         % mitjana nivells gris
         % tambe variancia
@@ -19,7 +19,7 @@ function [D] = mydescriptor(I)
 
 % prova mitjana nivells gris, variancia, skew i kurtsosis
 % sense subdivisions imatge origianl
-    
+    %{
     D = []; 
     % histograma
     [valorsHist, nivellsGris] = imhist(I);
@@ -38,12 +38,12 @@ function [D] = mydescriptor(I)
     % kurtosisImatge image. 
     kurtosisImatge = sum((nivellsGris - mitjanaImatge) .^ 4 .* valorsHist) / ((nombrePixels - 1) * desEstandardImatge^4);
     D(end+1) = kurtosisImatge; 
-    
+    %}
 
 
 %prova prova mitjana nivells gris, variancia, skew i kurtsosis
-% amb 9 subdivisions imatge original
-    %{
+% amb 6 subdivisions imatge original
+   
    D = []; 
    for i = 1:3
        for j = 1:3
@@ -67,13 +67,13 @@ function [D] = mydescriptor(I)
             D(end+1) = kurtosisImatge; 
        end
    end
-    %}
+   
 
 
 %prova prova mitjana nivells gris, variancia, skew i kurtsosis
 % imatge laplatian of gaussian sense subdivisions
     %{
-    filtreLaplatianOfGaussian = fspecial('log', [5 5], 0.35); 
+    filtreLaplatianOfGaussian = fspecial('log', [5 5], 0.50); 
     ImageLaplatian = imfilter(I, filtreLaplatianOfGaussian); 
     %figure
     %imshow(ImageLaplatian); 
@@ -99,9 +99,9 @@ function [D] = mydescriptor(I)
     %}
 
 %prova prova mitjana nivells gris, variancia, skew i kurtsosis
-% imatge laplatian of gaussian 9 subdivisions
+% imatge laplatian of gaussian 6 subdivisions
     %{
-    filtreLaplatianOfGaussian = fspecial('log', [5 5], 0.35); 
+    filtreLaplatianOfGaussian = fspecial('log', [5 5], 0.50); 
     ImageLaplatian = imfilter(I, filtreLaplatianOfGaussian); 
     %figure
     %imshow(ImageLaplatian); 
