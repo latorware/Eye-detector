@@ -105,5 +105,13 @@ end
 validationAccuracy
 
 
+trainClassifier(T)
+
+
+
+
+
+
+
 
 

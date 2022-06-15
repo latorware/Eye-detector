@@ -12,13 +12,13 @@ Detector = vision.CascadeObjectDetector('FrontalFaceLBP');
 % Read a video frame and run the face detector.
 videoReader = VideoReader('video.webm');
 
-videoOut = VideoWriter('video-out.avi'); %create the video object
+videoOut = VideoWriter('video-out.webm'); %create the video object
 
 open(videoOut); %open the file for writing
 
 a=0;
  
-while hasFrame(videoReader)
+while hasFrame(videoReader) || a < 10
     % get the next frame
     videoFrame = readFrame(videoReader);
     bbox = step(Detector, videoFrame);
@@ -35,14 +35,13 @@ while hasFrame(videoReader)
         end
             %quadrats
             videoFrame = insertShape(videoFrame, 'Rectangle', quadrat);
-    end
 
-    writeVideo(videoOut,videoFrame); %write the image to file
+    end
 
 %     figure
 %     imshow(videoFrame)
-    a=a+1;
-    a
+
+    a = a +1;
     
 end
 
